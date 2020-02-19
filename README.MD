@@ -4,7 +4,7 @@
 
 El programa principal suele llamarse `index.js`, aunque no hay ninguna limitación al respecto.
 
-El programa puede dividirse en módulos. Existen distintos sistemas de módulos. El descrito aquí corresponde a ES5 para node.js:
+El programa puede dividirse en módulos. Existen distintos sistemas de módulos. (El descrito aquí corresponde a CommnonJS, muy utilizado con ES5 para node.js)
 
 Para definir un módulo: en otro fichero .js, lo que se quiera exportar del módulo se coloca como atributos de un objeto llamado `exports`.
 
@@ -23,8 +23,6 @@ var modulo = require('./mimodulo');
 console.log(modulo.b);
 modulo.saludar();
 ```
-
-> Existen otros sistemas de módulos.
 
 ## instalando dependencias.
 * iniciamos el gestor de dependencias con `npm init`
@@ -63,3 +61,15 @@ server.get('/info/:nombre, function(req, res) {
 })
 ```
 
+### algunos métodos y funciones de req y res
+
+* `req.params`: un array con los parámetros (slugs) de la url
+* `req.query`: Los parámetros urlencodeados en la url (ej: ?nombre=paco)
+* `req.body`: el cuerpo, parseado por el parseador de json o el de urlencode.
+
+* `res.status(400)`: fija el código de respuesta
+* `res.send("una cadena")`: envía la cadena a la respuesta
+* `res.json(obj)`
+* `res.set('Content-Type', 'text/plain')`: Fija un campo de cabecera.
+
+* [Referencia completa aquí](https://expressjs.com/es/api.html)
